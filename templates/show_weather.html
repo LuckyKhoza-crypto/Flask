@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+
+<html>
+  <body>
+    {% include 'enter_location.html' %}
+  </body>
+
+  {% if weather_data %}
+  <p>Location: {{ weather_data['address']}}</p>
+  <p class="alert alert-danger text-center">
+    {{ weather_data['description'] }}
+  </p>
+
+  <div class="row">
+    {% for day in weather_data['days'] %}
+    <div class="col-md-4 my-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center">{{ day['datetime'] }}</h3>
+          <h5 class="text-center">Temperatures</h5>
+          <p><strong>Min:</strong> {{ day['tempmin'] }} &deg;F</p>
+          <p><strong>Max:</strong> {{ day['tempmax'] }} &deg;F</p>
+          <p><strong>Humidity:</strong> {{ day['humidity'] }}%</p>
+          <p><strong>Precipitation:</strong> {{ day['precip'] }} inches</p>
+          <p><strong>Windspeed:</strong> {{ day['windspeed'] }} mph</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {%endif %}
+</html>
+
+{% endblock %}
