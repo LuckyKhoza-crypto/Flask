@@ -16,8 +16,7 @@ This project is a simple web application built with Flask that retrieves and dis
 
 1. **Clone the Repository**:
     ```bash
-    git clone <repository-url>
-    cd weather-app
+    git clone https://github.com/LuckyKhoza-crypto/Flask
     ```
 
 2. **Create a Virtual Environment**:
